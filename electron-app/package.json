@@ -1,0 +1,42 @@
+{
+  "name": "llm-electron-app",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.windanim.llmtester",
+    "mac": {
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "./backend",
+        "to": "backend"
+      },
+      {
+        "from": "./frontend/build",
+        "to": "frontend/build"
+      }
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.8.4"
+  }
+}
